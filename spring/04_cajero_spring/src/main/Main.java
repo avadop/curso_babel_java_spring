@@ -59,15 +59,22 @@ public class Main {
 	private static void realizarIngreso(int numCuenta, CajeroService cajero) {
 		System.out.print("\nIntroduce la cantidad que deseas ingresar: ");
 		double cantidad = Double.parseDouble(sc.nextLine());
-		cajero.ingresar(numCuenta, cantidad);
-		System.out.println("\nDinero total en la cuenta: " + cajero.getSaldo(numCuenta));
+		if(cantidad > 0) {
+			cajero.ingresar(numCuenta, cantidad);
+			System.out.println("\nDinero total en la cuenta: " + cajero.getSaldo(numCuenta));
+		}
+		else System.out.println("Por favor, introduzca una cantidad positiva");
 	}
 	private static void realizarExtraccion(int numCuenta, CajeroService cajero) {
 		System.out.print("\nIntroduce la cantidad que deseas extraer: ");
 		double cantidad = Double.parseDouble(sc.nextLine());
-		if(cajero.extraccion(numCuenta, cantidad))
-			System.out.println("\nDinero total en la cuenta: " + cajero.getSaldo(numCuenta));
-		else System.out.println("\n** No tienes suficiente dinero en tu cuenta **");
+		if(cantidad < 0)
+			System.out.println("\nPor favor, introduzca una cantidad positiva");
+		else {
+			if(cajero.extraccion(numCuenta, cantidad))
+				System.out.println("\nDinero total en la cuenta: " + cajero.getSaldo(numCuenta));
+			else System.out.println("\n** No tienes suficiente dinero en tu cuenta **");
+		}
 	}
 	private static void mostrarMovimientos(int numCuenta, CajeroService cajero) {
 		System.out.println("\nSaldo total en la cuenta: " + cajero.getSaldo(numCuenta));
