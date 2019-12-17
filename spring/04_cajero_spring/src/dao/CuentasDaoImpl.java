@@ -27,9 +27,8 @@ public class CuentasDaoImpl implements CuentasDao {
 
 	@Override
 	public void updateCuenta(Cuenta cuenta) {
-		String sql = "update cuentas set saldo = ?, tipoCuenta = ? where numCuenta = ?";
+		String sql = "update cuentas set saldo = ?, tipocuenta = ? where numeroCuenta = ?";
 		this.template.update(sql, cuenta.getSaldo(),cuenta.getTipo(),cuenta.getNumCuenta());
-
 	}
 
 }

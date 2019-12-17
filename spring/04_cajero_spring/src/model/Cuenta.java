@@ -28,4 +28,7 @@ public class Cuenta {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	public String toString() {
+		return "Numero de cuenta: " + this.numCuenta + "  Saldo: " + this.saldo + "  Tipo de cuenta: " + this.tipo;
+	}
 }

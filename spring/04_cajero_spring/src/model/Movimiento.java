@@ -46,4 +46,8 @@ public class Movimiento {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	public String toString() {
+		return "Cuenta: "+this.idCuenta+"  Tipo de operacion: " + this.operacion + "  Cantidad: " + 
+				this.cantidad +"  Fecha: " + this.fecha;
+	}
 }
