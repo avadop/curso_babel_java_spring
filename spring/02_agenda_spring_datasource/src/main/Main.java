@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import model.Contacto;
