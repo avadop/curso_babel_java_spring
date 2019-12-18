@@ -29,4 +29,10 @@ public class ContactosController {
 		this.agenda.addContacto(new Contacto(nombre, email,edad));
 		return "inicio";
 	}
+	
+	@PostMapping(value="deleteContacto")
+	public String nuevoContacto(@RequestParam("email") String email) {
+		this.agenda.deleteContacto(email);
+		return "inicio";
+	}
 }

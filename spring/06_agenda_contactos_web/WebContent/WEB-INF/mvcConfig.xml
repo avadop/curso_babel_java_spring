@@ -14,5 +14,6 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	<mvc:view-controller path="/toInicio" view-name="inicio"/>
-	<mvc:view-controller path="/newContacto" view-name="nuevo"/>
+	<mvc:view-controller path="/newContacto" view-name="nuevo"/>	
+	<mvc:view-controller path="/eliminarContacto" view-name="eliminar"/>
 </beans>
