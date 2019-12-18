@@ -10,7 +10,7 @@
 	<div align="center">
 	<h1>Agenda</h1>
 		<br/>
-		<a href="verContactos">VER CONTACTOS</a>
+		<a href="verContactos">VER CONTACTOS</a>  |  <a href="newContacto">NUEVO CONTACTO</a>
 	</div>
 </body>
 </html>
