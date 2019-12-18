@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+a{
+	font-size: 22px;
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -18,7 +23,7 @@
 			<input type="submit" value="Crear contacto"/>
 		</form>
 		<br/><br/>
-		<a href="toInicio">Volver</a>
+		<a href="toInicio">Volver</a><br/><br/>
 	</div>
 </body>
 </html>

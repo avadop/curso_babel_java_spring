@@ -6,10 +6,15 @@
 <style type="text/css">
 th{
 	padding: 5px;
+	font-size: 20px;
 }
 td{
-padding: 5px;
-text-align: center;}
+	padding: 7px;	
+	text-align: center;
+}
+a{
+	font-size: 22px;
+}
 </style>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -33,7 +38,7 @@ text-align: center;}
 		este modelo de patron, que todas las peticiones que salen del cliente
 		pasen por el dispatcherServer y que las gestione a través del controler -->
 		<%-- <a href="inicio.jsp">Volver</a> --%> <!-- estos comentarios para codigo -->
-		<a href="toInicio">Volver</a>
+		<a href="toInicio">Volver</a> <br/><br/>
 	</div>
 </body>
 </html>
