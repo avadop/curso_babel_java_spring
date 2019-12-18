@@ -33,12 +33,12 @@ a{
 				<td><%=c.getEdad() %></td>
 				<td>
 				<!-- Solucion profe: GET -->
-				<a href="deleteContactoId?id=<%=c.getIdContacto()%>" >Eliminar</a>
+				<%--<a href="deleteContactoId?id=<%=c.getIdContacto()%>" >Eliminar</a>--%>
 				<!-- Solucion Luis POST -->
-				<%--	<form action="deleteContactoId" method="post">
+					<form action="deleteContactoId" method="POST">
 						<input type="hidden" value=<%=c.getIdContacto() %> name="id"/>
 						<input type="submit" value="eliminar"/>
-					</form> --%>
+					</form> 
 				</td>
 			</tr> 
 			<%} %>

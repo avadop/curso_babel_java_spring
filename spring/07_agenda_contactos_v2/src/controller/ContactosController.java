@@ -35,10 +35,16 @@ public class ContactosController {
 		this.agenda.deleteContacto(email);
 		return "inicio";
 	}
-	
-	@GetMapping(value="deleteContactoId")
+	//MODO PROFE
+	/*@GetMapping(value="deleteContactoId")
 	public String eliminarContacto(@RequestParam("id") int id) {
 		this.agenda.deleteContacto(id);
-		return "contactos";
+		return "forward:verContactos";
+	}*/
+	//MODO LUIS
+	@PostMapping(value="deleteContactoId")
+	public String eliminarContacto(@RequestParam("id") int id) {
+		this.agenda.deleteContacto(id);
+		return "forward:verContactos";
 	}
 }
