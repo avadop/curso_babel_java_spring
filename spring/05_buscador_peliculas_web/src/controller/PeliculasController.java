@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -47,6 +48,12 @@ public class PeliculasController {
 		request.setAttribute("peliculas", resultado);
 		/*Devolvemos la direccion de la pagina (vista) encargada de generar la respuesta.
 		 * No ponemos nada mas que eso porque el resto lo resuelve spring*/
+		return "peliculas";
+	}
+	
+	@GetMapping(value="/verPeliculas")
+	public String recuperarPeliculas(HttpServletRequest request) {
+		request.setAttribute("peliculas", this.peliculas);
 		return "peliculas";
 	}
 }

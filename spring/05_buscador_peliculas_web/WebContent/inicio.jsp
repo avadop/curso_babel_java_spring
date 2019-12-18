@@ -12,6 +12,9 @@
 			Tematica: <input type ="text" name="tematica"/><br/><br/>
 			<input type="submit" value="Peliculas"/>
 		</form>
+		<br/><br/>
+		<!--  se llama al GET implicitamente, no se puede poner -->
+		<a href="verPeliculas">Ver todas Peliculas</a>
 	</div>
 </body>
 </html>

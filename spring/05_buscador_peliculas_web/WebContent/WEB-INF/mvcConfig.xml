@@ -15,4 +15,12 @@
 		<property name="prefix" value="/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	<!-- DispatcherService, la direccion de la funcion que se llama desde el jsp
+	y el nombre de la vista a la que te tiene que llevar.
+	Esto sirve para crear direcciones virtuales para utilizar en las vistas -->
+	<!-- Definicion de navegaciones estáticas -->
+	<mvc:view-controller path="/toInicio" view-name="inicio"/>
+	<!-- No hay que poner lo de abajo porque es solo para redirecciones estaticas, 
+	si tiene que realizar alguna accion en el controlador, esto no se pone.	
+	<mvc:path="/verTodas" view-name="peliculas"/> -->
 </beans>
