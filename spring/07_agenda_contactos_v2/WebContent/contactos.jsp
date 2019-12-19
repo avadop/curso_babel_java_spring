@@ -35,7 +35,7 @@ a{
 				<!-- Solucion profe: GET -->
 				<%--<a href="deleteContactoId?id=<%=c.getIdContacto()%>" >Eliminar</a>--%>
 				<!-- Solucion Luis POST -->
-					<form action="deleteContactoId" method="POST">
+					<form action="deleteContactoId" >
 						<input type="hidden" value=<%=c.getIdContacto() %> name="id"/>
 						<input type="submit" value="eliminar"/>
 					</form> 
