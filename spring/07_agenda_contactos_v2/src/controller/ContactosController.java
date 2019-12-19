@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +16,14 @@ import service.AgendaService;
 public class ContactosController {
 	@Autowired
 	AgendaService agenda;
-	
-	@GetMapping(value="verContactos")
+
+	/*Usamos un request mapping para recibir http:post o get, sin importarnos,
+	 * como hacemos el forward en deleteContactoId hecho con Post, en el return
+	 * envía una peticion post, y si este verContactos no es un post también no funciona, 
+	 * para evitarnos el problema lo dejamos como requestMapping.
+	 * Si usamos luego la version de get, también funcionará.
+	 * Request Mapping da igual si le llega post o get.*/
+	@RequestMapping(value="verContactos")
 	public String getAllContactos(HttpServletRequest request) {
 		request.setAttribute("getAllContactos", this.agenda.mostrarContactos());
 		return "contactos";
@@ -42,14 +48,9 @@ public class ContactosController {
 		this.agenda.deleteContacto(id);
 		return "forward:verContactos";
 	}*/
+	
 	//MODO LUIS
-	/*Usamos un request mapping para recibir el http:post de la vista (formulario), 
-	 * porque cuando hacemos el forward, como verContactos es un método GET, se envía 
-	 * un POST de este método y salta error 405. De esta manera con el request mapping
-	 * no importa qué le llegue que lo puede reenviar, en vez de recibir post, le llega
-	 * lo que necesite.
-	 * En la pagina .jsp nos cargamos el method="loquesea"*/
-	@RequestMapping(value="deleteContactoId")
+	@PostMapping(value="deleteContactoId")
 	public String eliminarContacto(@RequestParam("id") int id) {
 		this.agenda.deleteContacto(id);
 		return "forward:verContactos";

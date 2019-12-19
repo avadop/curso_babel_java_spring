@@ -34,8 +34,8 @@ a{
 				<td>
 				<!-- Solucion profe: GET -->
 				<%--<a href="deleteContactoId?id=<%=c.getIdContacto()%>" >Eliminar</a>--%>
-				<!-- Solucion Luis POST (RequestMapping) -> Mas info en funcion del controller -->
-					<form action="deleteContactoId" >
+				<!-- Solucion Luis POST -->
+					<form action="deleteContactoId" method="POST">
 						<input type="hidden" value=<%=c.getIdContacto() %> name="id"/>
 						<input type="submit" value="eliminar"/>
 					</form> 
