@@ -35,8 +35,9 @@ public class CajeroController {
 	//Realiza la extraccion
 	@PostMapping(value="extraccion")
 	public String extraccion(@RequestParam("cantidad") double cantidad, HttpSession session) {
-		this.cajero.extraccion((int)session.getAttribute("getNumCuenta"), cantidad);
-		return "menu";
+		if(this.cajero.extraccion((int)session.getAttribute("getNumCuenta"), cantidad))
+			return "menu";
+		else return "errorExtraccion";
 	}
 	//Acceso con la cuenta
 	@PostMapping(value="accesoCliente")
