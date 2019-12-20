@@ -21,7 +21,6 @@ public class CajeroController {
 	//Muestra movimientos de un numeroCuenta + saldo
 	@GetMapping(value="verMovimientos")
 	public String getAllMovimientos(HttpServletRequest request, HttpSession session) {
-		System.out.println("Saldo:"+ this.cajero.getSaldo((int)session.getAttribute("getNumCuenta")));
 		request.setAttribute("getMovimientos", this.cajero.getAllMovimientos((int)session.getAttribute("getNumCuenta")));
 		request.setAttribute("getSaldo", this.cajero.getSaldo((int)session.getAttribute("getNumCuenta")));
 		return "movimientos";
