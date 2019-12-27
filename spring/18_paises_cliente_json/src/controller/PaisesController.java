@@ -16,7 +16,7 @@ public class PaisesController {
 	@Autowired
 	PaisesService service;
 	
-	@GetMapping(value="")
+	@GetMapping(value="/")
 	public String getPaises(HttpServletRequest request) throws ParseException {
 		request.setAttribute("getPaises", service.getAllPaises());
 		return "inicio";

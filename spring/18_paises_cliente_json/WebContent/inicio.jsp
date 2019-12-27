@@ -13,8 +13,10 @@
 		<c:set var="paises" value="${requestScope.getPaises}"/>
 		<form action="clickPais" method="POST">
 			<select name="nombre">
+			<%-- Se podria poner directamente en items: ${requestScope-getPaises} --%>
 				<c:forEach var="p" items="${paises}">
-					<option>${p.nombre}</option>
+				<!-- Hay que poner el value, porque a veces no coincide -->
+					<option value="${p.nombre}">${p.nombre}</option>
 				</c:forEach>
 			</select>
 			<br><br>
