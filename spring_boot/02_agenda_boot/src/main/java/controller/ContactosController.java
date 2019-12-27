@@ -24,17 +24,22 @@ public class ContactosController {
 	public List<Contacto> getAllContactos() {
 		return this.agenda.mostrarContactos();
 	}
+	
+	@GetMapping(value="contacto/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	public Contacto searchId(@PathVariable("id") int id) {
+		return this.agenda.buscarContacto(id);
+	}
+	
+	@GetMapping(value="buscar/{email}", produces=MediaType.APPLICATION_JSON_VALUE)
+	public Contacto searchEmail(@PathVariable("email") String email) {
+		return this.agenda.buscarContacto(email);
+	}
 
 	@PostMapping(value="addContacto", consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String nuevoContacto(@RequestBody Contacto contacto) {
 		if(this.agenda.addContacto(contacto))
 			return "Contacto agregado";
 		else return "Hubo algun error";
-	}
-	
-	@GetMapping(value="contacto/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Contacto searchId(@PathVariable("id") int id) {
-		return this.agenda.buscarContacto(id);
 	}
 	
 	@PutMapping(value="modificar", consumes=MediaType.APPLICATION_JSON_VALUE)
