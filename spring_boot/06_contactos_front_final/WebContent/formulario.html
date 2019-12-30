@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+<script type="text/javascript">
+	function peticionService(){
+		var urlBase="http://localhost:10000/addContacto";
+		/*Con el dolar y la almohadilla decimos que usamos las variables con esa id*/
+		urlBase+="/"+ $("#nombre")+"/"+$("#email")+"/"+$("#edad");
+		/*lanzamos la peticion, una peticion http de algo, le pasamos un json con las 
+		propiedades para gestionar los datos
+		
+		Hay mas tipos de datos que pasar, dependiendo del tipo de peticion que es o si 
+		tiene que devolver algun valor*/
+		$.ajax({
+			"url":urlBase,
+			"type":"GET",
+		});
+		alert("operacion realizada");
+	}
+</script>
+<style>
+body {
+	padding-top:20px;
+	padding-bottom: 30px;
+}
+</style>
+</head>
+<body>
+	<div align=center>
+		<h1>Altas - Modificaciones de contactos</h1>		
+		<br/>
+		<div class="form-group">
+			<label>Nombre:</label>
+			<input type="text" id="nombre" class="form-control" style="width:50%"/>
+		</div>
+		<div class="form-group">
+			<label>Email:</label>
+			<input type="text" id="email" class="form-control" style="width:50%"/>
+		</div>
+		<div class="form-group">
+			<label>Edad</label>
+			<input type="text" id="edad" class="form-control" style="width:50%"/>
+		</div>
+		<div class="form-group">
+			<button onclick="peticionService();">Guardar/actualizar</button>
+		</div>
+	</div>
+</body>
+</html>
