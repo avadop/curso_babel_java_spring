@@ -10,7 +10,7 @@ import model.Item;
 public class ClienteAgendaServiceImpl implements ClienteAgendaService {
 	@Autowired
 	RestTemplate template;
-	String url = "http://localhost:8080";
+	String url = "http://localhost:9000";
 	
 	/*Recibe del controlador los datos del nuevo contacto y tiene que 
 	 * interaccionar con el otro servicio para realizar las operaciones*/
