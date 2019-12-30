@@ -16,24 +16,53 @@
 <script type="text/javascript">
 	function peticionService(){
 		var urlBase="http://localhost:10000/addContacto";
-		/*Con el dolar y la almohadilla decimos que usamos las variables con esa id*/
-		urlBase+="/"+ $("#nombre")+"/"+$("#email")+"/"+$("#edad");
+		/*Con el dolar y la almohadilla decimos que usamos las variables con esa id,
+		pero para obtener el valor hay que poner .val()*/
+		urlBase+="/"+ $("#nombre").val()+"/"+$("#email").val()+"/"+$("#edad").val();
 		/*lanzamos la peticion, una peticion http de algo, le pasamos un json con las 
 		propiedades para gestionar los datos
 		
 		Hay mas tipos de datos que pasar, dependiendo del tipo de peticion que es o si 
-		tiene que devolver algun valor*/
+		tiene que devolver algun valor. */
 		$.ajax({
 			"url":urlBase,
 			"type":"GET",
-		});
-		alert("operacion realizada");
+			//ContentType = tipo del respuesta del servicio
+			"contentType":"aplication/json"
+		/*En el metodo .done() se le pasa una funcion con la respuesta y todo lo que 
+		queremos hacer con esa respuesta.*/ 
+		}).done(
+				function(data){
+					//alert(JSON.stringify(data)); //aparece el array con los datos.
+					/*En vez de sacar una alerta queremos pintar una tabla, pero como 
+					no es elegante, hacemos una llamada a otra funcion que se encarge de generar la tabla*/
+					mostrarTabla(data);
+				}
+			);
+		
 	}
+	function mostrarTabla(data){
+		if(!$.isEmptyObject(data)){
+			var tabla="<table class='table table-striped'><tr><th>Nombre</th><th>Email</th><th>Edad</th></tr>";
+			for(var i=0;i<data.length;i++){
+				tabla+="<tr><td>"+data[i].nombre+"</td><td>"+data[i].email+"</td><td>"+data[i].edad+"</td></tr>";			
+			}
+			tabla+="</table>";
+			$("#resultado").html(tabla);
+		}
+		else{
+			$("#resultado").html("<h1>No hay contactos</h1>")
+		}
+	}
+	
 </script>
 <style>
 body {
 	padding-top:20px;
 	padding-bottom: 30px;
+}
+#resultado {
+	width: 80%;
 }
 </style>
 </head>
@@ -55,6 +84,12 @@ body {
 		</div>
 		<div class="form-group">
 			<button onclick="peticionService();">Guardar/actualizar</button>
+		</div> <br/><br/>
+		
+	<!-- Pintamos la tabla con los valores obtenidos en la funcion -->
+		<div id="resultado">
+		
+		
 		</div>
 	</div>
 </body>
