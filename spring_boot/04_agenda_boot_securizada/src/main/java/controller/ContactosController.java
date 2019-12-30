@@ -3,7 +3,10 @@ package controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,9 +24,20 @@ public class ContactosController {
 	AgendaService agenda;
 	
 	@GetMapping(value="contactos", produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Contacto> getAllContactos() {
+	/*public List<Contacto> getAllContactos() {
 		return this.agenda.mostrarContactos();
+	}*/
+	/*El tipo del responseEntity es del tipo del valor que se le va a pasar 
+	 * en el body. Los headers son todos strings.*/
+	public ResponseEntity<List<Contacto>> getAllContactos(){
+		List<Contacto> contactos = agenda.mostrarContactos();//cuerpo 
+		HttpHeaders headers = new HttpHeaders();//encabezados
+		//truqui del almendruqui: pones + "" y se convierte en string
+		headers.add("total", contactos.size() + "");
+		//El estatus que devolvemos se puede emplear para manejar distintas situaciones
+		return new ResponseEntity<List<Contacto>>(contactos, headers, HttpStatus.OK);
 	}
+	
 	
 	@GetMapping(value="contacto/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public Contacto searchId(@PathVariable("id") int id) {

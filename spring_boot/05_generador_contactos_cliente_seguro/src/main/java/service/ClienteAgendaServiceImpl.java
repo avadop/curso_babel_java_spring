@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,9 +31,19 @@ public class ClienteAgendaServiceImpl implements ClienteAgendaService {
 		}
 	}
 
-	@Override
+	/*@Override
 	public List<Item> getContactos() {
 		return Arrays.asList(template.getForObject(url + "/contactos", Item[].class));
+	}*/
+	
+	/*Queremos el cuerpo y saber el valor del encabezado*/
+	@Override
+	public List<Item> getContactos() {
+		ResponseEntity<Item[]> contactos = template.getForEntity(url+"/contactos", Item[].class);
+		//System.out.println(contactos.getHeaders());
+		System.out.println(contactos.getHeaders().get("total").toString());
+		return Arrays.asList(contactos.getBody());
 	}
+
 
 }
