@@ -1,5 +1,8 @@
 package service;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -24,6 +27,11 @@ public class ClienteAgendaServiceImpl implements ClienteAgendaService {
 			contacto.setNombre(item.getNombre());
 			template.put(url+"/modificar", contacto);
 		}
+	}
+
+	@Override
+	public List<Item> getContactos() {
+		return Arrays.asList(template.getForObject(url + "/contactos", Item[].class));
 	}
 
 }
