@@ -1,0 +1,18 @@
+# Nombre identificador del servicio
+spring:
+  application:
+    name: servicio-agregar-contacto
+
+# Puerto asignado al server (por defecto)
+server: 
+  port: 10000
+
+# Config de el servidor  
+eureka: 
+  client:
+    # Propiedad que indica si queremos que el servicio sea descubierto
+    # False = no queremos que sea descubierto
+    registerWithEureka: false
+    serviceUrl:
+      # Direccion a la que se conecta el microservicio con eureka
+      defaultZone: http://localhost:8761/eureka
