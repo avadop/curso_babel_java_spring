@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/contactos").authenticated()
 		/* Cuando no especificas el metodo http pero si la ruta, se hace referencia a 
 		 * todos los metodos que se llaman desde la ruta*/
-		.antMatchers("/eliminarEmail").authenticated()
+		.antMatchers("/eliminarEmail/*").authenticated()
 		//.antMatchers("/**").authenticated()
 		.and()
 		.httpBasic();
