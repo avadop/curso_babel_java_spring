@@ -1,0 +1,8 @@
+# Nombre identificador del servicio
+spring:
+  application:
+    name: servicio-agenda
+  cloud:
+    config:
+    # Configuracion de url del cloud para acceder a configs
+      uri: http://localhost:8888

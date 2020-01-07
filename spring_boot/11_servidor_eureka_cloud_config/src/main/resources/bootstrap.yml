@@ -1,0 +1,8 @@
+# Nombre identificador de eureka, con el cual se va a reconocer el 
+# resto de la configuracion dentro del github (servidor-eureka.yml)
+spring:
+  application:
+    name: servidor-eureka  cloud:    config:
+    # Configuracion de url del cloud para acceder a configs      # uri: http://localhost:8888
+      # IP German, lo runea el
+      uri: http://172.10.4.222:8888
